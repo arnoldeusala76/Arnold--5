@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORE // Arnold Eusala</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="grid-background"></div>
+<div class="glow glow-one"></div>
+<div class="glow glow-two"></div>
+
+<main class="dashboard">
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">&lt;/&gt;</div>
+            <div>
+                <div class="brand-name">ARNOLD</div>
+                <div class="brand-subtitle">CORE DATA MONITOR</div>
+            </div>
+        </div>
+
+        <div class="system-status">
+            <span id="statusDot" class="status-dot offline"></span>
+            <span id="statusText">CONNECTING</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <div class="eyebrow">// REALTIME ESP32 INTERFACE</div>
+            <h1>Arnold Eusala<br><span>Environment Monitor</span></h1>
+        </div>
+
+        <div class="live-clock">
+            <span class="clock-label">LOCAL TIME</span>
+            <span id="liveClock">--:--:--</span>
+        </div>
+    </section>
+
+    <section class="current-grid">
+
+        <div class="sensor-panel temperature-panel">
+            <div class="sensor-label">// CURRENT TEMPERATURE</div>
+            <div class="sensor-title">TEMPERATURE</div>
+            <div id="currentTemperature" class="sensor-value">-- °C</div>
+            <div class="sensor-unit">DHT11 SENSOR</div>
+        </div>
+
+        <div class="sensor-panel humidity-panel">
+            <div class="sensor-label">// CURRENT HUMIDITY</div>
+            <div class="sensor-title">HUMIDITY</div>
+            <div id="currentHumidity" class="sensor-value">-- %</div>
+            <div class="sensor-unit">DHT11 SENSOR</div>
+        </div>
+
+    </section>
+
+    <section class="database-strip">
+        <div class="database-left">
+            <span class="database-indicator"></span>
+            <span>DATABASE</span>
+        </div>
+        <div class="database-path">/ESP32_Data</div>
+    </section>
+
+    <section class="data-card">
+
+        <div class="section-heading">
+            <div>
+                <div class="section-tag">// SENSOR GRAPH</div>
+                <h2>Temperature &amp; Humidity Trends</h2>
+            </div>
+
+            <select id="graphDate">
+                <option value="">Select Date</option>
+            </select>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="sensorChart"></canvas>
+        </div>
+
+    </section>
+
+    <section class="data-card">
+
+        <div class="section-heading history-heading">
+            <div>
+                <div class="section-tag">// HISTORICAL SENSOR OUTPUT</div>
+                <h2>Sensor History</h2>
+            </div>
+
+            <button id="toggleHistory" class="core-button">
+                SHOW HISTORY
+            </button>
+        </div>
+
+        <div id="historyContent" class="hidden">
+
+            <div class="history-controls">
+
+                <label for="historyDate">SELECT DATE</label>
+
+                <select id="historyDate">
+                    <option value="">Select Date</option>
+                </select>
+
+                <span id="recordCount">0 records</span>
+
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>TIME</th>
+                            <th>TEMPERATURE</th>
+                            <th>HUMIDITY</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="historyTableBody">
+                        <tr>
+                            <td colspan="4" class="empty-state">
+                                NO DATA AVAILABLE
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="wifi-card">
+
+        <div>
+            <div class="section-tag">// DEVICE CONFIGURATION</div>
+            <h2>WiFi Manager</h2>
+            <p>Configure the ESP32 network connection.</p>
+        </div>
+
+        <a href="/change-wifi" class="core-button">
+            CHANGE WIFI
+        </a>
+
+    </section>
+
+    <footer>
+        <span>CORE MONITOR SYSTEM</span>
+        <span>FIREBASE RTDB</span>
+        <span>ESP32 + DHT11</span>
+    </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
