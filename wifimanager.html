@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORE // WiFi Manager</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #080d14;
+            color: #dbeafe;
+            font-family: "Segoe UI", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .grid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(14,165,233,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14,165,233,.035) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 520px;
+            background: #111923;
+            border: 1px solid #172033;
+            padding: 35px;
+            box-shadow: 0 0 50px rgba(0,0,0,.35);
+        }
+
+        .brand {
+            color: #22d3ee;
+            font-family: monospace;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #f8fafc;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-family: monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            color: #64748b;
+            font-family: monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            background: #050a10;
+            color: #f8fafc;
+            border: 1px solid #263449;
+            outline: none;
+            font-family: monospace;
+        }
+
+        input:focus {
+            border-color: #22d3ee;
+            box-shadow: 0 0 0 1px #22d3ee;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #06202a;
+            color: #f4fafb;
+            border: 1px solid #22d3ee;
+            font-family: monospace;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #083746;
+        }
+
+        .note {
+            margin-top: 20px;
+            color: #475569;
+            font-family: monospace;
+            font-size: 9px;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<div class="card">
+
+    <div class="brand">CORE // ESP32</div>
+
+    <h1>WiFi Manager</h1>
+
+    <div class="subtitle">
+        ARNOLD EUSALA ENVIRONMENT MONITOR
+    </div>
+
+    <form method="POST" action="/">
+
+        <label>WIFI SSID</label>
+        <input
+            type="text"
+            name="ssid"
+            placeholder="Enter WiFi name"
+            required
+        >
+
+        <label>WIFI PASSWORD</label>
+        <input
+            type="password"
+            name="pass"
+            placeholder="Enter WiFi password"
+        >
+
+        <label>STATIC IP</label>
+        <input
+            type="text"
+            name="ip"
+            placeholder="192.168.1.100"
+        >
+
+        <label>GATEWAY</label>
+        <input
+            type="text"
+            name="gateway"
+            placeholder="192.168.1.1"
+        >
+
+        <button type="submit">
+            SAVE &amp; RESTART
+        </button>
+
+    </form>
+
+    <div class="note">
+        Leave STATIC IP and GATEWAY empty if you want
+        the ESP32 to use DHCP.
+    </div>
+
+</div>
+
+</body>
+</html>
